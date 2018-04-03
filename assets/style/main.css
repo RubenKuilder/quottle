@@ -1,1 +1,24 @@
 /* Main stylesheet */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+}
+
+html, body {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
+    background: rgb(229,229,229); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgb(229,229,229) 0%, rgb(255,255,255) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgb(229,229,229) 0%,rgb(255,255,255) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgb(229,229,229) 0%,rgb(255,255,255) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@media screen and (max-width: 480px) {
+    
+    
+    .topbar {
+        height: 50px;
+        width: 100%;
+    }
+}
