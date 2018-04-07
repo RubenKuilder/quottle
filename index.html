@@ -5,16 +5,54 @@
     <title>Quottle</title>
 	<meta name="Author" content="Ruben Kuilder"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/style/main.css">
     <script src="assets/script/main.js"></script>
 </head>
 <body>
+    
+    <div class="topbar login">
+        <img class="icon-left" src="assets/images/icon-left.svg" />
+        <img class="logo" src="assets/images/logo.png" />
+        <img class="icon-right" src="assets/images/icon-right.svg" />
+    </div>
+    
+    <div class="page-container">
+        <div class="login-page">
+            <div class="wrapper">
+                <h1 class="welcome">Hi there, <br /> Welcome back!</h1>
 
-    <div class="topbar">
-        <img src="assets/images/arrowL" />
-        <img src="assets/images/logo.svg" />
-        <img src="assets/images/arrowR" />
+                <div class="form-wrapper">
+                    <form>
+                        <input type="text" placeholder="Email">
+                        <input type="password" placeholder="Password">
+                        <input type="submit" value="sign in">
+                        <p class="forgot-pw">Forgot password?</p>
+                    </form>
+                </div>
+
+                <p class="create-one">Don't have an account? <span class="highlight">Create one</span></p>
+            </div>
+        </div>
+
+        <div class="registration-page">
+            <div class="wrapper">
+                <h1 class="welcome">Account creation</h1>
+
+                <div class="form-wrapper">
+                    <form>
+                        <input type="text" placeholder="Email">
+                        <input type="text" placeholder="First- and lastname">
+                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password verification">
+                        <input type="submit" value="Create account">
+                    </form>
+                </div>
+
+                <p class="tclink">By signing up you indicate that you have read and agreed to the <span class="bold">Terms and Conditions</span></p>
+            </div>
+        </div>
     </div>
 
 </body>

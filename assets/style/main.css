@@ -1,24 +1,186 @@
 /* Main stylesheet */
+
 * {
+    position: relative;
     padding: 0;
     margin: 0;
     font-family: 'Karla', sans-serif;
+    color: #252525;
 }
 
-html, body {
+html,
+body {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
-    background: rgb(229,229,229); /* Old browsers */
-    background: -moz-linear-gradient(-45deg, rgb(229,229,229) 0%, rgb(255,255,255) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(-45deg, rgb(229,229,229) 0%,rgb(255,255,255) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(135deg, rgb(229,229,229) 0%,rgb(255,255,255) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: rgb(229, 229, 229);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgb(229, 229, 229) 0%, rgb(255, 255, 255) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgb(229, 229, 229) 0%, rgb(255, 255, 255) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgb(229, 229, 229) 0%, rgb(255, 255, 255) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
 }
 
-@media screen and (max-width: 480px) {
-    
-    
-    .topbar {
-        height: 50px;
-        width: 100%;
-    }
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
 }
+
+p {
+    font-size: 14px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #5ebfbc;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* INDEX SLIDE */
+.page-container {
+    height: 100%;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.login-page {
+    width: 100vw;
+}
+
+.registration-page {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    transition: all .2s;
+    
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
+    background: rgb(229, 229, 229);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgb(229, 229, 229) 0%, rgb(255, 255, 255) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgb(229, 229, 229) 0%, rgb(255, 255, 255) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgb(229, 229, 229) 0%, rgb(255, 255, 255) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+/* INDEX SLIDE END */
+
+.topbar {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    position: fixed;
+    z-index: 999;
+}
+
+.topbar.login {
+    background: none;
+}
+
+.topbar .icon-left {
+    height: 15px;
+    padding: 15px;
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+}
+
+.topbar .icon-right {
+    height: 15px;
+    padding: 15px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+.topbar .logo {
+    height: 19px;
+    padding: 13px;
+}
+
+/* LOGIN AND REGISTRATION PAGE */
+.wrapper {
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LOGIN PAGE */
+.welcome {
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.form-wrapper {
+    min-height: 55vh;
+    display: table;
+}
+
+form {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+form input {
+    display: block;
+    border: 1px solid #b3b3b3;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    padding: 14px 20px;
+    background: none;
+    margin-bottom: 20px;
+
+    color: #252525;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+}
+
+form input[type='submit'] {
+    border: 0;
+    background: #4ecdc4;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Karla', sans-serif;
+}
+
+form input::placeholder {
+    color: #b5b5b5;
+    font-size: 14px;
+    font-family: 'Karla', sans-serif;
+}
+
+form input:focus {
+    outline: none;
+}
+
+.forgot-pw {
+    font-weight: bold;
+    text-align: center;
+}
+
+.create-one {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* REGISTRATION PAGE */
+.tclink {
+    font-size: 12px;
+    margin-bottom: 50px;
+}
+
+/* LOGIN AND REGISTRATION PAGE END */
