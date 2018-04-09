@@ -10,6 +10,9 @@
 
 html,
 body {
+    height: auto;
+    min-height: 100vh;
+    
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
     background: rgb(229, 229, 229);
     /* Old browsers */
@@ -76,14 +79,17 @@ p {
 
 .topbar {
     width: 100%;
+    height: 45px;
     background-color: #fff;
     text-align: center;
     position: fixed;
     z-index: 999;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .topbar.login {
     background: none;
+    box-shadow: none;
 }
 
 .topbar .icon-left {
@@ -184,3 +190,80 @@ form input:focus {
 }
 
 /* LOGIN AND REGISTRATION PAGE END */
+
+/* HOME PAGE */
+.post:not(:first-child) {
+    margin-top: 2px;
+}
+
+.post h3 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 14px 20px;
+    background: #fff;
+}
+
+.postlist-container {
+    margin-top: 45px;
+    width: 100%;
+    height: auto;
+}
+
+.post .postimage-container {
+    width: 100%;
+    padding-top: 75%;
+}
+
+.postimage-container h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 80%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: solid rgba(0,0,0,0);
+    border-width: 5px 10px;
+}
+
+.postimage-container img {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.post-bottombar {
+    padding-top: 5px;
+    background-color: #fff;
+}
+
+.post-bottombar .like-container, .post-bottombar .comment-container {
+    display: inline-block;
+    width: auto;
+    padding: 10px 10px 10px 20px;
+}
+
+.post-bottombar .like-container svg, .post-bottombar .comment-container svg {
+    display: inline-block;
+    height: 15px;
+    width: 20px;
+    top: -1px;
+}
+
+.post-bottombar .like-container svg path, .post-bottombar .comment-container svg path {
+    stroke-width: 4px;
+}
+
+.post-bottombar .like-container p, .post-bottombar .comment-container p {
+    display: inline-block;
+    font-size: 12px;
+    color: #919191;
+    vertical-align: top;
+}
+
+/* HOME PAGE END */
