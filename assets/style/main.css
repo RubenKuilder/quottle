@@ -45,23 +45,26 @@ p {
     font-weight: bold;
 }
 
-/* INDEX SLIDE */
+/* PAGE SLIDES */
 .page-container {
-    height: 100%;
+    height: 100vh;
     width: 100vw;
     overflow: hidden;
 }
 
 .login-page {
     width: 100vw;
+    height: 100%;
+    overflow: scroll;
 }
 
-.registration-page {
+.registration-page, .profile-page, .single-page {
     position: absolute;
     width: 100vw;
-    left: 0;
-    top: 0;
+    height: 100%;
     transition: all .2s;
+    z-index: 15;
+    overflow: scroll;
     
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
     background: rgb(229, 229, 229);
@@ -75,16 +78,52 @@ p {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
 }
-/* INDEX SLIDE END */
 
-.topbar {
+.registration-page, .profile-page {
+    left: 100%;
+    top: 0;
+}
+
+.home-page {
+    height: 100%;
+    overflow: scroll;
+}
+
+.single-page {
+    left: 0;
+    top: 100%;
+}
+/* PAGE SLIDES END */
+
+.topbar, .bottombar {
     width: 100%;
     height: 45px;
+    left: 0;
     background-color: #fff;
     text-align: center;
     position: fixed;
     z-index: 999;
+}
+
+.topbar {
+    top: 0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.bottombar {
+    bottom: 0;
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.12), 0 -1px 2px rgba(0,0,0,0.24);
+}
+
+.bottombar svg {
+    height: 25px;
+    width: 25px;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.bottombar svg.add-icon, .bottombar svg.profile-icon {
+    opacity: 0.15;
 }
 
 .topbar.login {
@@ -92,7 +131,7 @@ p {
     box-shadow: none;
 }
 
-.topbar .icon-left {
+.topbar .icon-left, .bottombar .icon-left {
     height: 15px;
     padding: 15px;
     position: absolute;
@@ -100,7 +139,7 @@ p {
     cursor: pointer;
 }
 
-.topbar .icon-right {
+.topbar .icon-right, .bottombar .icon-right {
     height: 15px;
     padding: 15px;
     position: absolute;
@@ -108,7 +147,7 @@ p {
     cursor: pointer;
 }
 
-.topbar .logo {
+.topbar .logo, .bottombar .logo {
     height: 19px;
     padding: 13px;
 }
@@ -195,6 +234,9 @@ form input:focus {
 .post:not(:first-child) {
     margin-top: 2px;
 }
+.post:last-child {
+    margin-bottom: 45px;
+}
 
 .post h3 {
     font-size: 14px;
@@ -212,6 +254,7 @@ form input:focus {
 .post .postimage-container {
     width: 100%;
     padding-top: 75%;
+    overflow: hidden;
 }
 
 .postimage-container h2 {
