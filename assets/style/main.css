@@ -58,7 +58,7 @@ p {
     overflow: scroll;
 }
 
-.registration-page, .profile-page, .single-page {
+.registration-page, .profile-page, .single-page, .create-page {
     position: absolute;
     width: 100vw;
     height: 100%;
@@ -92,6 +92,11 @@ p {
 .single-page {
     left: 0;
     top: 100%;
+}
+
+.create-page {
+    left: 0;
+    top: 0;
 }
 /* PAGE SLIDES END */
 
@@ -152,6 +157,18 @@ p {
     padding: 13px;
 }
 
+.topbar input[type="submit"] {
+    padding: 12px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    font-size: 18px;
+    border: 0;
+    background: none;
+    font-weight: bold;
+    color: #4ecdc4;
+}
+
 /* LOGIN AND REGISTRATION PAGE */
 .wrapper {
     width: calc(100% - 50px);
@@ -208,7 +225,7 @@ form input::placeholder {
     font-family: 'Karla', sans-serif;
 }
 
-form input:focus {
+form input:focus, form textarea:focus {
     outline: none;
 }
 
@@ -231,10 +248,11 @@ form input:focus {
 /* LOGIN AND REGISTRATION PAGE END */
 
 /* HOME PAGE */
-.post:not(:first-child) {
+.postlist-container .post:not(:first-child) {
     margin-top: 2px;
 }
-.post:last-child {
+
+.postlist-container .post:last-child {
     margin-bottom: 45px;
 }
 
@@ -248,7 +266,7 @@ form input:focus {
 .postlist-container {
     margin-top: 45px;
     width: 100%;
-    height: auto;
+    height: calc(100% - 45px);
 }
 
 .post .postimage-container {
@@ -285,24 +303,24 @@ form input:focus {
     background-color: #fff;
 }
 
-.post-bottombar .like-container, .post-bottombar .comment-container {
+.post-bottombar .likecount-container, .post-bottombar .commentcount-container {
     display: inline-block;
     width: auto;
     padding: 10px 10px 10px 20px;
 }
 
-.post-bottombar .like-container svg, .post-bottombar .comment-container svg {
+.post-bottombar .likecount-container svg, .post-bottombar .commentcount-container svg {
     display: inline-block;
     height: 15px;
     width: 20px;
     top: -1px;
 }
 
-.post-bottombar .like-container svg path, .post-bottombar .comment-container svg path {
+.post-bottombar .likecount-container svg path, .post-bottombar .commentcount-container svg path {
     stroke-width: 4px;
 }
 
-.post-bottombar .like-container p, .post-bottombar .comment-container p {
+.post-bottombar .likecount-container p, .post-bottombar .commentcount-container p {
     display: inline-block;
     font-size: 12px;
     color: #919191;
@@ -310,3 +328,148 @@ form input:focus {
 }
 
 /* HOME PAGE END */
+
+/* SINGLE PAGE*/
+.comment-container {
+    width: 100%;
+    height: auto;
+}
+
+.comment-container p {
+    width: 100%;
+    background-color: #fff;
+}
+
+.comment-container p:not(:first-child) {
+    margin-top: 2px;
+}
+
+.comment-container p {
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.comment-container p .username {
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+form.comment-form {
+    display: block;
+    vertical-align: top;
+    margin-top: 2px;
+    margin-bottom: 50px;
+}
+
+form.comment-form input {
+    width: calc(100% - 50px);
+    height: 50px;
+    border: 0;
+    border-radius: 0;
+    float: left;
+    margin: 0;
+    background: #fff;
+}
+
+form.comment-form .submit-btn {
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 45px;
+    float: left;
+}
+
+form.comment-form .submit-btn input[type='submit'] {
+    width: 100%;
+    background: #4ecdc4;
+}
+
+form.comment-form .submit-btn img {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* SINGLE PAGE END */
+
+/* CREATE PAGE */
+.create-page .post {
+    min-height: calc(100% - 90px);
+    margin: 45px 0;
+}
+
+.create-page form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    z-index: 10;
+    width: 80%;
+    text-align: center;
+}
+
+.create-page form textarea {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    border: solid rgba(0,0,0,0);
+    border-width: 5px 10px;
+    border-radius: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+
+.create-page form textarea::placeholder {
+    color: #fff;
+    opacity: .5;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+.takephoto-btn {
+    padding: 14px 0;
+    background: #fff;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.stockphotos-container {
+    padding-bottom: 45px;
+}
+
+.stockphoto {
+    width: calc(25% - 3px);
+    height: 22vw;
+    overflow: hidden;
+    margin: -2px 0;
+    margin-top: 0;
+    display: inline-block;
+}
+
+.stockphoto:nth-child(n+5) {
+    margin-top: 1px;
+}
+
+.stockphoto img {
+    min-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* CREATE PAGE END */
