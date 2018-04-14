@@ -12,7 +12,7 @@ html,
 body {
     height: auto;
     min-height: 100vh;
-    
+
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
     background: rgb(229, 229, 229);
     /* Old browsers */
@@ -46,6 +46,7 @@ p {
 }
 
 /* PAGE SLIDES */
+
 .page-container {
     height: 100vh;
     width: 100vw;
@@ -58,14 +59,17 @@ p {
     overflow: scroll;
 }
 
-.registration-page, .profile-page, .single-page, .create-page {
+.registration-page,
+.profile-page,
+.single-page,
+.create-page {
     position: absolute;
     width: 100vw;
     height: 100%;
     transition: all .2s;
     z-index: 15;
     overflow: scroll;
-    
+
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e5e5e5+0,ffffff+100 */
     background: rgb(229, 229, 229);
     /* Old browsers */
@@ -79,7 +83,8 @@ p {
     /* IE6-9 fallback on horizontal gradient */
 }
 
-.registration-page, .profile-page {
+.registration-page,
+.profile-page {
     left: 100%;
     top: 0;
 }
@@ -95,12 +100,14 @@ p {
 }
 
 .create-page {
-    left: 0;
+    left: -100%;
     top: 0;
 }
+
 /* PAGE SLIDES END */
 
-.topbar, .bottombar {
+.topbar,
+.bottombar {
     width: 100%;
     height: 45px;
     left: 0;
@@ -112,12 +119,19 @@ p {
 
 .topbar {
     top: 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .bottombar {
     bottom: 0;
-    box-shadow: 0 -1px 3px rgba(0,0,0,0.12), 0 -1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.12), 0 -1px 2px rgba(0, 0, 0, 0.24);
+}
+    
+.bottombar .logo {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .bottombar svg {
@@ -127,7 +141,8 @@ p {
     margin: 0 10px;
 }
 
-.bottombar svg.add-icon, .bottombar svg.profile-icon {
+.bottombar svg.add-icon,
+.bottombar svg.profile-icon {
     opacity: 0.15;
 }
 
@@ -136,7 +151,8 @@ p {
     box-shadow: none;
 }
 
-.topbar .icon-left, .bottombar .icon-left {
+.topbar .icon-left,
+.bottombar .icon-left {
     height: 15px;
     padding: 15px;
     position: absolute;
@@ -144,7 +160,8 @@ p {
     cursor: pointer;
 }
 
-.topbar .icon-right, .bottombar .icon-right {
+.topbar .icon-right,
+.bottombar .icon-right {
     height: 15px;
     padding: 15px;
     position: absolute;
@@ -152,7 +169,8 @@ p {
     cursor: pointer;
 }
 
-.topbar .logo, .bottombar .logo {
+.topbar .logo,
+.bottombar .logo {
     height: 19px;
     padding: 13px;
 }
@@ -168,8 +186,19 @@ p {
     font-weight: bold;
     color: #4ecdc4;
 }
+    
+.close-icon {
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none;
+}
 
 /* LOGIN AND REGISTRATION PAGE */
+
 .wrapper {
     width: calc(100% - 50px);
     margin: 0 auto;
@@ -179,6 +208,7 @@ p {
 }
 
 /* LOGIN PAGE */
+
 .welcome {
     margin-top: 100px;
     margin-bottom: 20px;
@@ -225,7 +255,8 @@ form input::placeholder {
     font-family: 'Karla', sans-serif;
 }
 
-form input:focus, form textarea:focus {
+form input:focus,
+form textarea:focus {
     outline: none;
 }
 
@@ -240,6 +271,7 @@ form input:focus, form textarea:focus {
 }
 
 /* REGISTRATION PAGE */
+
 .tclink {
     font-size: 12px;
     margin-bottom: 50px;
@@ -248,6 +280,7 @@ form input:focus, form textarea:focus {
 /* LOGIN AND REGISTRATION PAGE END */
 
 /* HOME PAGE */
+
 .postlist-container .post:not(:first-child) {
     margin-top: 2px;
 }
@@ -283,9 +316,9 @@ form input:focus, form textarea:focus {
     z-index: 10;
     width: 80%;
     text-align: center;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
-    border: solid rgba(0,0,0,0);
+    border: solid rgba(0, 0, 0, 0);
     border-width: 5px 10px;
 }
 
@@ -303,24 +336,28 @@ form input:focus, form textarea:focus {
     background-color: #fff;
 }
 
-.post-bottombar .likecount-container, .post-bottombar .commentcount-container {
+.post-bottombar .likecount-container,
+.post-bottombar .commentcount-container {
     display: inline-block;
     width: auto;
     padding: 10px 10px 10px 20px;
 }
 
-.post-bottombar .likecount-container svg, .post-bottombar .commentcount-container svg {
+.post-bottombar .likecount-container svg,
+.post-bottombar .commentcount-container svg {
     display: inline-block;
     height: 15px;
     width: 20px;
     top: -1px;
 }
 
-.post-bottombar .likecount-container svg path, .post-bottombar .commentcount-container svg path {
+.post-bottombar .likecount-container svg path,
+.post-bottombar .commentcount-container svg path {
     stroke-width: 4px;
 }
 
-.post-bottombar .likecount-container p, .post-bottombar .commentcount-container p {
+.post-bottombar .likecount-container p,
+.post-bottombar .commentcount-container p {
     display: inline-block;
     font-size: 12px;
     color: #919191;
@@ -330,6 +367,7 @@ form input:focus, form textarea:focus {
 /* HOME PAGE END */
 
 /* SINGLE PAGE*/
+
 .comment-container {
     width: 100%;
     height: auto;
@@ -391,12 +429,13 @@ form.comment-form .submit-btn img {
     z-index: 20;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 /* SINGLE PAGE END */
 
 /* CREATE PAGE */
+
 .create-page .post {
     min-height: calc(100% - 90px);
     margin: 45px 0;
@@ -406,7 +445,7 @@ form.comment-form .submit-btn img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 80%;
     z-index: 10;
     width: 80%;
@@ -417,8 +456,8 @@ form.comment-form .submit-btn img {
     color: #fff;
     font-size: 1.5em;
     font-weight: bold;
-    background-color: rgba(0,0,0,0.5);
-    border: solid rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: solid rgba(0, 0, 0, 0);
     border-width: 5px 10px;
     border-radius: 0;
     box-sizing: border-box;
@@ -469,7 +508,117 @@ form.comment-form .submit-btn img {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 /* CREATE PAGE END */
+
+/* DESKTOP */
+@media screen and (min-width:800px) {
+    .login-page .wrapper, .registration-page .wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .create-page {
+        display: none;
+    }
+    
+    .topbar {
+        display: none;
+    }
+    
+    .bottombar {
+        top: 0;
+        bottom: auto;
+        height: 85px;
+    }
+    
+    .bottombar .add-icon {
+        display: none;
+    }
+    
+    .bottombar .logo {
+        display: block;
+        padding: 33px;
+    }
+    
+    .bottombar svg {
+        padding: 30px 15px;
+    }
+    
+    .postlist-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        height: auto;
+        max-width: 960px;
+        width: calc(100% - 40px);
+        margin: 105px auto 0 auto;
+    }
+    
+    .post {
+        width: calc(33% - 10px);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    
+    .postlist-container .post:nth-child(-n+3) {
+        margin-top: 0;
+    }
+    
+    .postlist-container .post:nth-child(n+4) {
+        margin-top: 10px;
+    }
+    
+    .postlist-container .post:last-child {
+        margin-bottom: 0;
+    }
+    
+    /* SINGLE PAGE */
+    .single-page {
+        background: rgba(0,0,0,0.25);
+        z-index: 99999999;
+    }
+    
+    .single-page .post {
+        width: calc(100% - 200px);
+        margin: 105px auto 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .single-page .post h3 {
+        width: 100%;
+    }
+    
+    .single-page .post .postimage-container {
+        width: calc(100% - 400px);
+        padding-top: calc(75% - 300px);
+    }
+    
+    .single-page .poststuff-container {
+        flex: auto;
+        background: #f2f2f2;
+    }
+    
+    .single-page form.comment-form {
+        margin-bottom: 0;
+        position: absolute;
+        bottom: 0;
+    }
+    
+    .single-page form.comment-form .submit-btn{
+        margin-bottom: 0;
+    }
+    
+    .single-page .comment-container {
+        height: calc(100% - 94px);
+        overflow: scroll;
+    }
+    
+    .single-page .close-icon {
+        display: block;
+    }
+}
+
+/* DESKTOP END */
