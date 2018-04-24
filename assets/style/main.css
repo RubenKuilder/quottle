@@ -134,21 +134,25 @@ p {
     left: 0;
 }
 
-.bottombar svg {
+.bottombar img {
     height: 25px;
     width: 25px;
     padding: 10px;
     margin: 0 10px;
 }
 
-.bottombar svg.add-icon,
-.bottombar svg.profile-icon {
+.bottombar img.icon-add,
+.bottombar img.icon-profile {
     opacity: 0.15;
 }
 
 .topbar.login {
     background: none;
     box-shadow: none;
+}
+
+.topbar .icon-left, .topbar .icon-right {
+    display: none;
 }
 
 .topbar .icon-left,
@@ -158,6 +162,17 @@ p {
     position: absolute;
     left: 0px;
     cursor: pointer;
+}
+
+.topbar .icon-signout {
+    position: absolute;
+    left: 0px;
+    cursor: pointer;
+}
+
+.topbar .icon-signout img {
+    height: 15px;
+    padding: 15px;
 }
 
 .topbar .icon-right,
@@ -185,6 +200,8 @@ p {
     background: none;
     font-weight: bold;
     color: #4ecdc4;
+    
+    display: none;
 }
     
 .close-icon {
@@ -442,14 +459,20 @@ form.comment-form .submit-btn img {
 }
 
 .create-page form {
+    width: 100%;
+    height: auto;
+    min-height: calc(100vh - 90px);
+    display: block;
+    
+/*
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
     z-index: 10;
-    width: 80%;
     text-align: center;
+*/
 }
 
 .create-page form textarea {
@@ -461,9 +484,15 @@ form.comment-form .submit-btn img {
     border-width: 5px 10px;
     border-radius: 0;
     box-sizing: border-box;
-    width: 100%;
+    width: 80%;
     height: 100px;
     text-align: center;
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .create-page form textarea::placeholder {
@@ -471,7 +500,12 @@ form.comment-form .submit-btn img {
     opacity: .5;
     font-size: 1em;
     font-weight: bold;
-    line-height: 80px;
+    line-height: 1em;
+    padding-top: 20px;
+}
+
+.create-page form input[type="checkbox"] {
+    opacity: 0;
 }
 
 .takephoto-btn {
@@ -483,9 +517,13 @@ form.comment-form .submit-btn img {
     left: 0;
     bottom: 0;
     width: 100%;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0;
 }
 
 .stockphotos-container {
+    padding-top: 4px;
     padding-bottom: 45px;
 }
 
@@ -496,6 +534,7 @@ form.comment-form .submit-btn img {
     margin: -2px 0;
     margin-top: 0;
     display: inline-block;
+    background-color: #000;
 }
 
 .stockphoto:nth-child(n+5) {
@@ -509,6 +548,7 @@ form.comment-form .submit-btn img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0.3;
 }
 
 /* CREATE PAGE END */

@@ -1,17 +1,9 @@
 <?php
-// Start the session
 session_start();
 
-//DATABASE CONNECTEN
-$servername = 'localhost';
-$username = 'root';
-$password = 'root';
-$databasename = 'quottle';
-$conn = new mysqli($servername, $username, $password, $databasename);
+header( "refresh:2; url=home.php" );
 
-if($conn -> connect_error){
-    die('connection failed: '.$conn -> connect_error);
-}
+$configs = include('config.php');
 
 $sql = "SELECT * FROM users WHERE email = '".$_POST['login-email']."'";
 $result = $conn->query($sql);

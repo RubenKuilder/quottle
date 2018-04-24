@@ -1,13 +1,9 @@
 <?php
-$servername = 'localhost' ;
-$username = 'root' ;
-$password = 'root' ;
-$databasename = 'quottle' ;
-$conn = new mysqli($servername, $username, $password, $databasename);
+session_start();
 
-if($conn -> connect_error){
-    die('connection failed: '.$conn -> connect_error);
-}
+header( "refresh:2; url=index.html" );
+
+$configs = include('config.php');
 
 if (CRYPT_BLOWFISH == 1){
     $items = array('A','b','1','24','3','Y','j');
