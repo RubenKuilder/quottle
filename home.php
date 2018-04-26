@@ -2,7 +2,7 @@
     session_start();
 
     if ($_SESSION['id'] == "") {
-        header('location:index.html');
+        header('location:index.php');
     
         exit();
     }
@@ -44,7 +44,6 @@
             <?php
 
                 $sql = "SELECT * FROM posts WHERE sendTo REGEXP '".$_SESSION['id']."' ORDER BY id DESC";
-                $sql = "SELECT * FROM posts WHERE userID = '".$_SESSION['id']."'ORDER BY id DESC";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -52,10 +51,18 @@
                     while($row = $result->fetch_assoc()) {
                         
                         echo '<div class="post">';
-                            echo '<h3>'.$_SESSION['name'].'</h3>';
+                        
+                            $selectUser = "SELECT name FROM users WHERE id = '".$row['userID']."'";
+                            $username = $conn->query($selectUser);
+                            if ($username->num_rows > 0) {
+                                // output data of each row
+                                while($userRow = $username->fetch_assoc()) {
+                                    echo '<h3>'.$userRow['name'].'</h3>';
+                                }
+                            }
                             echo '<div class="postimage-container show-single profile-post" data-postID="'.$row['id'].'">';
                                 echo '<h2>'.$row['quote'].'</h2>';
-                                echo '<img src="assets/images/'.$row['img'].'.jpg" />';
+                                echo '<img src="assets/images/uploads/'.$row['img'].'" />';
                             echo '</div>';
                             echo '<div class="post-bottombar">
                                 <div class="likecount-container">
@@ -73,7 +80,7 @@
                         </div>';
                     }
                 } else {
-                    echo 'No posts found.';
+                    echo '<div class="noPosts">No posts received yet.</div>';
                 }
                 ?>
             </div>
@@ -94,7 +101,7 @@
                             echo '<h3>'.$_SESSION['name'].'</h3>';
                             echo '<div class="postimage-container show-single profile-post" data-postID="'.$row['id'].'">';
                                 echo '<h2>'.$row['quote'].'</h2>';
-                                echo '<img src="assets/images/'.$row['img'].'.jpg" />';
+                                echo '<img src="assets/images/uploads/'.$row['img'].'" />';
                             echo '</div>';
                             echo '<div class="post-bottombar">
                                 <div class="likecount-container">
@@ -112,7 +119,7 @@
                         </div>';
                     }
                 } else {
-                    echo 'No posts found.';
+                    echo '<div class="noPosts">No posts sent yet. Click on the &#43; icon at the bottom to send your first message!</div>';
                 }
                 ?>
             </div>
@@ -169,54 +176,54 @@
         
         <div class="create-page">
             <div class="post">
-                <form id="createQuoteForm" action="createpost.php" method="post">
+                <form id="createQuoteForm" action="createpost.php" method="post" enctype="multipart/form-data">
                     <div class="postimage-container">
-                            <textarea maxlength="60" name="quote" placeholder="Tap to write your quote"></textarea>
-                        <img src="assets/images/stock1.jpg" />
+                            <textarea maxlength="60" name="quote" placeholder="Tap to write your quote" required></textarea>
+                        <img src="assets/images/uploads/stock1.jpg" />
                     </div>
                     <div class="stockphotos-container">
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock1" />
-                            <img src="assets/images/stock1.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock1.jpg" />
+                            <img src="assets/images/uploads/stock1.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock2" />
-                            <img src="assets/images/stock2.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock2.jpg" />
+                            <img src="assets/images/uploads/stock2.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock3" />
-                            <img src="assets/images/stock3.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock3.jpg" />
+                            <img src="assets/images/uploads/stock3.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock4" />
-                            <img src="assets/images/stock4.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock4.jpg" />
+                            <img src="assets/images/uploads/stock4.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock5" />
-                            <img src="assets/images/stock5.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock5.jpg" />
+                            <img src="assets/images/uploads/stock5.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock6" />
-                            <img src="assets/images/stock6.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock6.jpg" />
+                            <img src="assets/images/uploads/stock6.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock7" />
-                            <img src="assets/images/stock7.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock7.jpg" />
+                            <img src="assets/images/uploads/stock7.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock8" />
-                            <img src="assets/images/stock8.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock8.jpg" />
+                            <img src="assets/images/uploads/stock8.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock9" />
-                            <img src="assets/images/stock9.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock9.jpg" />
+                            <img src="assets/images/uploads/stock9.jpg" />
                         </div>
                         <div class="stockphoto">
-                            <input type="checkbox" name="stockimg" value="stock10" />
-                            <img src="assets/images/stock10.jpg" />
+                            <input type="checkbox" name="stockimg" value="stock10.jpg" />
+                            <img src="assets/images/uploads/stock10.jpg" />
                         </div>
                     </div>
-                    <input class="takephoto-btn" type="file" placeholder="Take a photo" accept="image/*;capture=camera">
+                    <input class="takephoto-btn" type="file" name="imageUploader" placeholder="Take a photo" accept="image/*" capture="camera">
                 </form>
             </div>
         </div>

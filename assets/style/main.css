@@ -45,6 +45,16 @@ p {
     font-weight: bold;
 }
 
+.noPosts {
+    text-align: center;
+    margin-top: 100px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 300px;
+    margin: 100px auto 25px auto;
+}
+
 /* PAGE SLIDES */
 
 .page-container {
@@ -323,6 +333,7 @@ form textarea:focus {
     width: 100%;
     padding-top: 75%;
     overflow: hidden;
+    background-color: #000;
 }
 
 .postimage-container h2 {
@@ -574,6 +585,10 @@ form.comment-form .submit-btn img {
         height: 85px;
     }
     
+    .bottombar img {
+        padding: 30px 10px;
+    }
+    
     .bottombar .add-icon {
         display: none;
     }
@@ -581,6 +596,7 @@ form.comment-form .submit-btn img {
     .bottombar .logo {
         display: block;
         padding: 33px;
+        width: auto;
     }
     
     .bottombar svg {

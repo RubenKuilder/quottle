@@ -1,6 +1,6 @@
 // Main Javascript file
-// A $( document ).ready() block.
 $( document ).ready(function() {
+    //Pagination---
     var registerPage = false;
     var createPage = false;
     var profilePage = false;
@@ -42,6 +42,8 @@ $( document ).ready(function() {
         
         if(createPage == false) {
             createPage = true;
+            $(".postimage-container textarea").val("");
+            $(".takephoto-btn").val("");
 
             $('.create-page').css({'left':'0'});
             $('.icon-add').css({'opacity':'1'});
@@ -114,6 +116,7 @@ $( document ).ready(function() {
             $('.icon-profile').css({'opacity':'.15'});
             $('.icon-home').css({'opacity':'1'});
             $('.icon-left').css({'display':'none'});
+            $('.topbar .submit-btn').css({'display':'none'});
             $('.icon-signout').css({'display':'block'});
         }
         
@@ -161,8 +164,10 @@ $( document ).ready(function() {
         }
     };
     
+    //Stock photo live changes---
     $('.stockphoto').click(function() {
-        console.log($(this).find('input'));
+        $(".takephoto-btn").val("");
+        
         $('.stockphoto input').prop( "checked", false );
         $('.stockphoto img').css({'opacity':'0.3'});
         
@@ -170,5 +175,24 @@ $( document ).ready(function() {
         $(this).find('img').css({'opacity':'1'});
         
         $('.create-page .postimage-container img').attr('src', $(this).find('img').attr('src'));
+    });
+    
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('.create-page .postimage-container img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".takephoto-btn").change(function() {
+        $('.stockphoto input').prop( "checked", false );
+        $('.stockphoto img').css({'opacity':'0.3'});
+        readURL(this);
     });
 });

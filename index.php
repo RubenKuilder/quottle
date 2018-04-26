@@ -1,3 +1,14 @@
+<?php
+    session_start();
+
+    if ($_SESSION['id'] != "") {
+        header('location:home.php');
+    
+        exit();
+    }
+
+    $configs = include('config.php');
+?>
 <!DOCTYPE html>
 <html lang="">
 <head>
