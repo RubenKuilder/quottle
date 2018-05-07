@@ -8,10 +8,8 @@ $configs = include('config.php');
 $sql = "INSERT INTO comments (postID, userID, comment) VALUES ('$_POST[postID]', '$_SESSION[id]', '$_POST[commentTxt]')";
 
 if ($conn->query($sql)===TRUE){
-    echo 'succesvol toegevoegd.';
+    echo '<p><span class="username">'.$_SESSION[name].'</span>'.$_POST[commentTxt].'</p>';
 } else{
-    echo 'niet toegevoegd.';
-    echo '<br />';
-    echo 'Error:' . $sql . "<br /> <br />" . $conn->error;
+    echo 'Something went wrong while sending your comment.';
 }
 ?>

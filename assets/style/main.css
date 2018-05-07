@@ -63,12 +63,14 @@ p {
     overflow: hidden;
 }
 
+.resetpass-page,
 .login-page {
     width: 100vw;
     height: 100%;
     overflow: scroll;
 }
 
+.forgotpass-page,
 .registration-page,
 .profile-page,
 .single-page,
@@ -108,8 +110,25 @@ p {
     left: 0;
     top: 100%;
 }
+    
+.single-page .background-overlay {
+    background: rgba(0,0,0,0.25);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
 
-.create-page {
+.single-page .icon-cross {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.create-page, .forgotpass-page {
     left: -100%;
     top: 0;
 }
@@ -154,6 +173,18 @@ p {
 .bottombar img.icon-add,
 .bottombar img.icon-profile {
     opacity: 0.15;
+}
+
+.bottombar .icon-signout {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.bottombar .icon-signout img {
+    height: 15px;
+    padding: 35px 10px;
 }
 
 .topbar.login {
@@ -233,6 +264,14 @@ p {
     display: flex;
     flex-direction: column;
 }
+
+/* RESETPASSWORD PAGE */
+
+.resetPassInfo {
+    text-align: left;
+}
+
+/* RESETPASSWORD PAGE */
 
 /* LOGIN PAGE */
 
@@ -485,6 +524,7 @@ form#comment-form {
     vertical-align: top;
     margin-top: 2px;
     margin-bottom: 50px;
+    border-top: 1px solid #f2f2f2;
 }
 
 form#comment-form input {
@@ -628,7 +668,7 @@ form#comment-form .submit-btn img {
 
 /* DESKTOP */
 @media screen and (min-width:800px) {
-    .login-page .wrapper, .registration-page .wrapper {
+    .login-page .wrapper, .forgotpass-page .wrapper, .registration-page .wrapper, .resetpass-page .wrapper {
         width: 100%;
         max-width: 400px;
     }
@@ -651,7 +691,7 @@ form#comment-form .submit-btn img {
         padding: 30px 10px;
     }
     
-    .bottombar .add-icon {
+    .bottombar img.icon-add {
         display: none;
     }
     
@@ -664,6 +704,10 @@ form#comment-form .submit-btn img {
     .bottombar svg {
         padding: 30px 15px;
     }
+
+    .bottombar .icon-signout {
+        display: block;
+    }
     
     .postlist-container {
         display: flex;
@@ -672,7 +716,7 @@ form#comment-form .submit-btn img {
         height: auto;
         max-width: 960px;
         width: calc(100% - 40px);
-        margin: 105px auto 0 auto;
+        margin: 105px auto 40px auto;
     }
     
     .post {
@@ -694,16 +738,28 @@ form#comment-form .submit-btn img {
     
     /* SINGLE PAGE */
     .single-page {
-        background: rgba(0,0,0,0.25);
+        background: transparent;
         z-index: 99999999;
+        transition: none;
+    }
+    
+    .single-page .background-overlay {
+        display: block;
+    }
+
+    .single-page .icon-cross {
+        display: block;
     }
     
     .single-page .post {
         width: calc(100% - 200px);
-        margin: 105px auto 0 auto;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 0;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
     }
     
     .single-page .post h3 {
@@ -713,6 +769,10 @@ form#comment-form .submit-btn img {
     .single-page .post .postimage-container {
         width: calc(100% - 400px);
         padding-top: calc(75% - 300px);
+    }
+    
+    .single-page .post .post-bottombar {
+        flex: 1;
     }
     
     .single-page .poststuff-container {
@@ -728,11 +788,6 @@ form#comment-form .submit-btn img {
     
     .single-page form#comment-form .submit-btn{
         margin-bottom: 0;
-    }
-    
-    .single-page .comment-container {
-        height: calc(100% - 94px);
-        overflow: scroll;
     }
     
     .single-page .close-icon {

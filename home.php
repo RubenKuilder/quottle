@@ -2,7 +2,7 @@
     session_start();
 
     if ($_SESSION['id'] == "") {
-        header('location:index.php');
+        header('Location: index.php');
     
         exit();
     }
@@ -36,6 +36,7 @@
         <img class="icon-home show-home" src="assets/images/icon-home.svg" />
         <img class="icon-add show-create" src="assets/images/icon-add.svg" />
         <img class="icon-profile show-profile" src="assets/images/icon-profile.svg" />
+        <a href="logout.php" class="icon-signout"><img src="assets/images/signout.svg" /></a>
     </div>
     
     <div class="page-container">
@@ -60,7 +61,7 @@
                                     echo '<h3>'.$userRow['name'].'</h3>';
                                 }
                             }
-                            echo '<div class="postimage-container show-single profile-post" data-postID="'.$row['id'].'">
+                            echo '<div class="postimage-container show-single" data-postID="'.$row['id'].'">
                                 <h2>'.$row['quote'].'</h2>
                                 <img src="assets/images/uploads/'.$row['img'].'" />
                             </div>
@@ -149,7 +150,6 @@
         </div>
         
         <div class="single-page">
-            <div class="close-icon">x</div>
         </div>
         
         <div class="create-page">

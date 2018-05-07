@@ -41,11 +41,24 @@
                         <input type="text" name="login-email" placeholder="Email" required>
                         <input type="password" name="login-pass" placeholder="Password" required>
                         <input type="submit" name="submit" value="sign in">
-                        <p class="forgot-pw">Forgot password?</p>
+                        <p class="show-forgotpass forgot-pw">Forgot password?</p>
                     </form>
                 </div>
 
                 <p class="create-one">Don't have an account? <span class="highlight show-register">Create one</span></p>
+            </div>
+        </div>
+        <div class="forgotpass-page">
+            <div class="wrapper">
+                <h1 class="welcome">Forgot your password?</h1>
+                <p class="resetPassInfo">A link will be send to your email. Open this link to reset your password.</p>
+
+                <div class="form-wrapper">
+                    <form action="forgotpass.php" method="post">
+                        <input type="text" name="user-email" placeholder="Email" required>
+                        <input type="submit" name="submit" value="Send link">
+                    </form>
+                </div>
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-header( "refresh:2; url=index.php" );
+header('Location: index.php');
 
 $configs = include('config.php');
 

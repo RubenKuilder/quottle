@@ -1,6 +1,7 @@
 // Main Javascript file
 $( document ).ready(function() {
     //Pagination---
+    var forgotPassPage = false;
     var registerPage = false;
     var createPage = false;
     var profilePage = false;
@@ -15,6 +16,15 @@ $( document ).ready(function() {
             registerPage = true;
 
             $('.registration-page').css({'left':'0'});
+            $('.icon-left').css({'display':'block'});
+        }
+    });
+    
+    $('.show-forgotpass').click(function() {
+        if(forgotPassPage == false) {
+            forgotPassPage = true;
+
+            $('.forgotpass-page').css({'left':'0'});
             $('.icon-left').css({'display':'block'});
         }
     });
@@ -60,7 +70,7 @@ $( document ).ready(function() {
         
         if(profilePage == false) {
             profilePage = true;
-
+            
             $('.profile-page').css({'left':'0'});
             $('.icon-profile').css({'opacity':'1'});
             $('.icon-add').css({'opacity':'.15'});
@@ -91,7 +101,7 @@ $( document ).ready(function() {
         }
     });
     
-    $('.icon-left').click(function(){
+    $(document).on("click",".icon-left, .icon-cross, .background-overlay", function() {
         if(singleProfilePage == true) {
             hideAllExceptProfile();
         } else {
@@ -100,6 +110,14 @@ $( document ).ready(function() {
     });
     
     function hideAll() {
+        if(forgotPassPage == true) {
+            forgotPassPage = false;
+
+            $('.forgotpass-page').css({'left':'-100%'});
+            $('.icon-left').css({'display':'none'});
+            $('.icon-signout').css({'display':'block'});
+        }
+        
         if(registerPage == true) {
             registerPage = false;
 
@@ -133,6 +151,8 @@ $( document ).ready(function() {
         
         if(singlePage == true) {
             singlePage = false;
+            
+            console.log('hide single page');
 
             $('.single-page').css({'top':'100%'});
             $('.icon-left').css({'display':'none'});
@@ -141,6 +161,12 @@ $( document ).ready(function() {
     };
     
     function hideAllExceptProfile() {
+        if(forgotPassPage == true) {
+            forgotPassPage = false;
+
+            $('.forgotpass-page').css({'left':'100%'});
+        }
+        
         if(registerPage == true) {
             registerPage = false;
 
@@ -212,7 +238,7 @@ $( document ).ready(function() {
         });
     });
     
-    //Test AJAX---
+    //Like system---
     $(document).on("click",".likecount-container", function() {
         var postId = $(this).parent().parent().find('.postimage-container').data('postid');
         var thisPost = $(this);
@@ -246,6 +272,27 @@ $( document ).ready(function() {
                 }
             });
         }
+    });
+    
+    //Comment system---
+    
+    $(document).on("click",".comment-submit", function(event) {
+        // Stop the browser from submitting the form.
+        event.preventDefault();
+        
+        console.log('submit clicked');
+
+        // Serialize the form data.
+        var formData = $('#comment-form').serialize();
+        
+        $.ajax({
+            type: 'post',
+            url: 'commentsystem.php',
+            data: formData,
+            success: function (response) {
+                $('.comment-container').append(response);
+            }
+        });
     });
     
     //Add / remove like form post---
