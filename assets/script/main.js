@@ -195,4 +195,100 @@ $( document ).ready(function() {
         $('.stockphoto img').css({'opacity':'0.3'});
         readURL(this);
     });
+    
+    //Load single page---
+    $('.show-single').click(function(){
+        var postId = $(this).data('postid');
+        
+        $.ajax({
+            type: 'post',
+            url: 'loadsingle.php',
+            data: {
+                postId:postId,
+            },
+            success: function (response) {
+                $('.single-page').html(response);
+            }
+        });
+    });
+    
+    //Test AJAX---
+    $(document).on("click",".likecount-container", function() {
+        var postId = $(this).parent().parent().find('.postimage-container').data('postid');
+        var thisPost = $(this);
+        
+        console.log(postId);
+        
+        if ($(this).find('.heart').hasClass('active')) {
+            $.ajax({
+                type: 'post',
+                url: 'likesystem.php',
+                data: {
+                    update:'remove',
+                    postId:postId,
+                },
+                success: function (response) {
+                    $(thisPost).find('.heart').removeClass('active');
+                    $(thisPost).find('p').html(response);
+                }
+            });
+        } else {
+            $.ajax({
+                type: 'post',
+                url: 'likesystem.php',
+                data: {
+                    update:'add',
+                    postId:postId,
+                },
+                success: function (response) {
+                    $(thisPost).find('.heart').addClass('active');
+                    $(thisPost).find('p').html(response);
+                }
+            });
+        }
+    });
+    
+    //Add / remove like form post---
+//    $('.likecount-container').click(function(){
+//        var postId = $(this).parent().parent().find('.postimage-container').data('postid');
+//        
+//        console.log(postId);
+//        
+//        if ($(this).find('.heart').hasClass('active')) {
+//            $.ajax({
+//                type: 'post',
+//                url: 'likesystem.php',
+//                data: {
+//                    postId:postId,
+//                    test:'remove',
+//                },
+//                success: function (response) {
+//                    $(this).find('.heart').removeClass('active');
+//                    $(this).html(response);
+//                }
+//            });
+//        } else {
+//            $.ajax({
+//                type: 'post',
+//                url: 'likesystem.php',
+//                data: {
+//                    postId:postId,
+//                    test:'add',
+//                },
+//                success: function (response) {
+//                    $(this).find('.heart').addClass('active');
+//                    $(this).html(response);
+//                }
+//            });
+//        }
+//    });
+    
+    // Open and close terms and conditions popup
+    $('.tclink').click(function(){
+        $('.tc-container').css({'display': 'block'});
+    });
+    
+    $('.acceptTC').click(function(){
+        $('.tc-container').css({'display': 'none'});
+    });
 });

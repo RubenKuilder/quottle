@@ -28,6 +28,4 @@ if ($conn->query($sql)===TRUE){
     echo '<br />';
     echo 'Error:' . $sql . "<br /> <br />" . $conn->error;
 }
-
-header( "refresh:5;url=index.html" );
 ?>

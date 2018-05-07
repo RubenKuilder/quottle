@@ -304,6 +304,56 @@ form textarea:focus {
     margin-bottom: 50px;
 }
 
+.tc-container {
+    width: calc(100% - 40px);
+    max-width: 960px;
+    height: calc(100% - 100px);
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: none;
+}
+
+.tc-content {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 80px);
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.tc-container .title {
+    font-weight: bold;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+}
+
+.tc-container .header {
+    font-weight: bold;
+    display: block;
+}
+
+.tc-container .header {
+    padding-left: 20px;
+}
+
+.acceptTC {
+    font-size: 14px;
+    color: #5ebfbc;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 22px 0;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.12);
+}
+
 /* LOGIN AND REGISTRATION PAGE END */
 
 /* HOME PAGE */
@@ -384,6 +434,11 @@ form textarea:focus {
     stroke-width: 4px;
 }
 
+.post-bottombar .heart.active path {
+    fill: red;
+    stroke: red;
+}
+
 .post-bottombar .likecount-container p,
 .post-bottombar .commentcount-container p {
     display: inline-block;
@@ -395,6 +450,10 @@ form textarea:focus {
 /* HOME PAGE END */
 
 /* SINGLE PAGE*/
+
+.single-page .post {
+    margin-top: 45px;
+}
 
 .comment-container {
     width: 100%;
@@ -421,14 +480,14 @@ form textarea:focus {
     margin-right: 4px;
 }
 
-form.comment-form {
+form#comment-form {
     display: block;
     vertical-align: top;
     margin-top: 2px;
     margin-bottom: 50px;
 }
 
-form.comment-form input {
+form#comment-form input {
     width: calc(100% - 50px);
     height: 50px;
     border: 0;
@@ -438,26 +497,29 @@ form.comment-form input {
     background: #fff;
 }
 
-form.comment-form .submit-btn {
+form#comment-form .submit-btn {
     width: 50px;
     height: 50px;
     border: 0;
     border-radius: 0;
     margin-bottom: 45px;
     float: left;
+    z-index: 10;
 }
 
-form.comment-form .submit-btn input[type='submit'] {
+form#comment-form .submit-btn input[type='submit'] {
     width: 100%;
-    background: #4ecdc4;
+    background: transparent;
+    z-index: 21;
 }
 
-form.comment-form .submit-btn img {
+form#comment-form .submit-btn img {
     position: absolute;
     z-index: 20;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    padding: 12px;
+    background: #4ecdc4;
 }
 
 /* SINGLE PAGE END */
@@ -641,6 +703,7 @@ form.comment-form .submit-btn img {
         margin: 105px auto 0 auto;
         display: flex;
         flex-wrap: wrap;
+        margin-top: 0;
     }
     
     .single-page .post h3 {
@@ -657,13 +720,13 @@ form.comment-form .submit-btn img {
         background: #f2f2f2;
     }
     
-    .single-page form.comment-form {
+    .single-page form#comment-form {
         margin-bottom: 0;
         position: absolute;
         bottom: 0;
     }
     
-    .single-page form.comment-form .submit-btn{
+    .single-page form#comment-form .submit-btn{
         margin-bottom: 0;
     }
     

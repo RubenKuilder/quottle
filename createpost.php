@@ -22,7 +22,7 @@ function sendTo($i) {
     $loopCount = 20;
     
     if ($GLOBALS['maxUsers'] < $loopCount) {
-        $loopCount = $GLOBALS['maxUsers'] - 1;
+        $loopCount = $GLOBALS['maxUsers'];
     } else {
         $loopCount = 20;
     }
