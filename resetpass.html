@@ -14,6 +14,11 @@
     </head>
     <body>
     
+        <div class="topbar reset">
+            <a href="index.php" class="redirect-home"><img class="icon-home show-home" src="assets/images/icon-home.svg" /></a>
+            <img class="logo" src="assets/images/logo.png" />
+        </div>
+    
         <div class="page-container">
             <div class="resetpass-page">
                 <div class="wrapper">
@@ -21,9 +26,10 @@
 
                     <div class="form-wrapper">
                         <form action="resetpass.php" method="post">
-                            <input type="password" name="pass" placeholder="Password">
-                            <input type="password" placeholder="Password verification">
-                            <input type="submit" value="Reset password">
+                            <input class="pass" type="password" name="pass" placeholder="Password">
+                            <input class="passVeri" type="password" placeholder="Password verification">
+                            <div class="form-error"></div>
+                            <input class="formSumbit" type="submit" value="Reset password">
                         </form>
                     </div>
                 </div>

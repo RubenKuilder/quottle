@@ -190,6 +190,31 @@ $( document ).ready(function() {
         }
     };
     
+    //Password verification---
+    $('.pass').keyup(function() {
+        if ($('.regiPass').val() != $('.passVeri').val()) {
+            $('.formSumbit').prop('disabled', true);
+            $('.form-error').html('Passwords don\'t match.');
+            console.log('disabled');
+        } else {
+            $('.formSumbit').prop('disabled', false);
+            $('.form-error').html('');
+            console.log('enabled');
+        }
+    });
+    
+    $('.passVeri').keyup(function() {
+        if ($('.pass').val() != $('.passVeri').val()) {
+            $('.formSumbit').prop('disabled', true);
+            $('.form-error').html('Passwords don\'t match.');
+            console.log('disabled');
+        } else {
+            $('.formSumbit').prop('disabled', false);
+            $('.form-error').html('');
+            console.log('enabled');
+        }
+    });
+    
     //Stock photo live changes---
     $('.stockphoto').click(function() {
         $(".takephoto-btn").val("");
@@ -240,7 +265,7 @@ $( document ).ready(function() {
     
     //Like system---
     $(document).on("click",".likecount-container", function() {
-        var postId = $(this).parent().parent().find('.postimage-container').data('postid');
+        var postId = $(this).parent().parent().parent().find('.postimage-container').data('postid');
         var thisPost = $(this);
         
         console.log(postId);
@@ -256,6 +281,7 @@ $( document ).ready(function() {
                 success: function (response) {
                     $(thisPost).find('.heart').removeClass('active');
                     $(thisPost).find('p').html(response);
+                    console.log(response);
                 }
             });
         } else {
@@ -269,21 +295,23 @@ $( document ).ready(function() {
                 success: function (response) {
                     $(thisPost).find('.heart').addClass('active');
                     $(thisPost).find('p').html(response);
+                    console.log(response);
                 }
             });
         }
     });
     
     //Comment system---
-    
     $(document).on("click",".comment-submit", function(event) {
         // Stop the browser from submitting the form.
         event.preventDefault();
-        
-        console.log('submit clicked');
 
         // Serialize the form data.
         var formData = $('#comment-form').serialize();
+        var postId = $(this).parent().parent().parent().parent().find('.postimage-container').data('postid');
+        var commentInt = $(this).parent().parent().parent().find('.commentInt').html();
+        var thisPost = $(this);
+        var posts = $('.page-container').find("[data-postid='" + postId + "']");
         
         $.ajax({
             type: 'post',
@@ -291,6 +319,16 @@ $( document ).ready(function() {
             data: formData,
             success: function (response) {
                 $('.comment-container').append(response);
+                $('.comment-input').val('');
+                //$(thisPost).parent().parent().parent().find('.commentInt').html(parseInt(commentInt) + 1);
+                
+                for (i = 0; i < posts.length; i++) {
+                    console.log(posts.parent().find('.commentInt'));
+                    posts.parent().find('.commentInt').html(parseInt(commentInt) + 1);
+                }
+                //console.log($('.page-container').find("[data-postid='" + postId + "']"));
+                //console.log($('.page-container').find("[data-postid='" + postId + "']").find('.commentInt'));
+                //$('.page-container').find("[data-postid='" + postId + "']").find('.commentInt').html(parseInt(commentInt) + 1);
             }
         });
     });

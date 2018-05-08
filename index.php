@@ -68,11 +68,12 @@
 
                 <div class="form-wrapper">
                     <form action="register.php" method="post">
-                        <input type="text" name="email" placeholder="Email">
-                        <input type="text" name="name" placeholder="First- and lastname">
-                        <input type="password" name="pass" placeholder="Password">
-                        <input type="password" placeholder="Password verification">
-                        <input type="submit" value="Create account">
+                        <input type="text" name="email" placeholder="Email" required>
+                        <input type="text" name="name" placeholder="First- and lastname" required>
+                        <input class="pass" type="password" name="pass" placeholder="Password" required>
+                        <input class="passVeri" type="password" placeholder="Password verification" required>
+                        <div class="form-error"></div>
+                        <input class="formSumbit" type="submit" value="Create account">
                     </form>
                 </div>
 
